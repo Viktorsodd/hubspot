@@ -1,5 +1,5 @@
-import config
+var tools = require('./config.js');
 
-var key = config.MY_KEY;
 
-console.log(key);
+
+console.log(tools.func1());

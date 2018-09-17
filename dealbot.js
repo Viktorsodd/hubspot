@@ -38,6 +38,10 @@ web.chat.postMessage({ channel: conversationId, text: 'Hello there' })
   .catch(console.error);
 }
 
+var editMessage = function editTheMessage(message){
+	
+}
+
 
 
 module.exports = {message: message, enhancedMessage: enhancedMessage};

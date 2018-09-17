@@ -12,7 +12,7 @@ const dealbot = require('./dealbot.js')
   app.set('views', path.join(__dirname, 'views'))
   app.set('view engine', 'ejs')
   app.get('/', (req, res) => res.render('pages/index'))
-  app.post('/api/users', function(req, res) {
+  app.post('/action', function(req, res) {
     
   	dealbot.enhancedMessage();
     res.send('loool');

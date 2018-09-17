@@ -30,8 +30,8 @@ function getDeals(){
   var arrayLength = body.results.length;
   
 	  body.results.forEach(function(value,index){
-	  	console.log(index)
-	  	console.log(body.results.length)
+	  	//console.log(index)
+	  	//console.log(body.results.length)
 	  	
 	  	//Get the details of each deal, limit the fetch rate
 	  	setTimeout(function(){ deal(value,index,arrayLength);}, 2000*index)
@@ -51,7 +51,7 @@ function deal(deal,index,arrayLength){
 
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
-  console.log(body)
+  //console.log(body)
 
   //Check if the deal has an owner
   var hasOwner;

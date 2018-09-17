@@ -5,15 +5,18 @@ const main = require('./main.js');
 const request = require('request');
 const { WebClient } = require('@slack/client');
 const app = express()
+var bodyParser = require('body-parser');
 
   app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views'))
   app.set('view engine', 'ejs')
   app.get('/', (req, res) => res.render('pages/index'))
-  app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
-  
-app.post('/api/users', function(req, res) {
+  app.post('/api/users', function(req, res) {
     
 
     res.send('loool');
-});
+}); 
+
+
+  app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  

@@ -93,7 +93,14 @@ function deal(deal,index,arrayLength){
 	        
 
 	        
-	            + "Deal owner: *" + (hasOwner ? body.properties.hubspot_owner_id.sourceId + "*" : "Unclaimed*")
+	            + "Deal owner: *" + (hasOwner ? body.properties.hubspot_owner_id.sourceId + "*" : "Unclaimed*"),
+	            "actions": (hasOwner ? {} : [
+			        {
+			          "type": "button",
+			          "text": "Claim that lead!",
+			          "url": "https://app.hubspot.com/contacts/3285375/deal/" + deal.dealId
+			        }
+			      ])
 	        };
 	    	
 	    

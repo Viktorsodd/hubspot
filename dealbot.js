@@ -1,15 +1,23 @@
-const request = require('request');
+const { WebClient } = require('@slack/client');
+var tools = require('./config.js');
 
-module.exports = {
-	post: function(){
-		request.post('https://hooks.slack.com/services/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', {
-    "text": "I am a test message http://slack.com",
-    "attachments": [
-        {
-            "text": "And here’s an attachment!"
-        }
-    ]
-})
-	}
+const { IncomingWebhook } = require('@slack/client');
+const url = tools.slack_webhook_url();
+const webhook = new IncomingWebhook(url);
 
+
+
+// Send simple text to the webhook channel
+var message = function sendMessage(content){
+	console.log('sending message')
+	console.log(content)
+	webhook.send(content, function(err, res) {
+    if (err) {
+        console.log('Error:', err);
+    } else {
+        console.log('Message sent: ', res);
+    }
+});
 }
+
+module.exports = message;

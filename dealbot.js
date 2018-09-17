@@ -10,7 +10,7 @@ const webhook = new IncomingWebhook(url);
 // Send simple text to the webhook channel
 var message = function sendMessage(content){
 	console.log('sending message')
-	console.log(content)
+	//console.log(content)
 	webhook.send(content, function(err, res) {
     if (err) {
         console.log('Error:', err);
@@ -39,7 +39,7 @@ web.chat.postMessage({ channel: conversationId, text: 'Hello there' })
 }
 
 var editMessage = function editTheMessage(message){
-	
+
 }
 
 

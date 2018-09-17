@@ -20,8 +20,8 @@ const dealbot = require('./dealbot.js')
   	var attachment_id = req.body.attachment_id;
   	var original_message = req.body.original_message;
   	console.log(attachment_id);
-  	;
-    res.send(attachment_id.value);
+  	
+    res.send(original_message);
 }); 
 
 

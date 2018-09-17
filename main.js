@@ -4,6 +4,9 @@ const { WebClient } = require('@slack/client');
 
 const dealbot = require('./dealbot.js')
 var hubkey = process.env.hubkey;
+var count_claimed = 0;
+var count_deals = 0;
+
 
 
 
@@ -18,7 +21,7 @@ function getAccount(){
 
 //Original slack message structure
 var slackMessage = {
-	"text": "Here are the new leads from the past 24 hours.",
+	"text": "Here are the new leads from the past 24 hours.\n During the period we claimed " + count_claimed + "/" + count_deals + " leads.",
 	    "attachments": [
 	    	
 	    ]
@@ -57,6 +60,7 @@ function deal(deal,index,arrayLength){
   var hasOwner;
   if (typeof body.properties.hubspot_owner_id !== 'undefined'){
   	hasOwner = true;
+  	count_claimed = count_claimed + 1;
   }else{
   	hasOwner = false;
   }
@@ -123,6 +127,7 @@ function deal(deal,index,arrayLength){
 	  //console.log(slackMessage)
 	  createMessage(snippet)
 	  if(index === arrayLength - 1){
+	  	count_deals = index;
 	  	dealbot.message(slackMessage)
 	  }
 	  

@@ -99,7 +99,8 @@ function deal(deal,index,arrayLength){
 			        {
 			          "type": "button",
 			          "text": "Claim that lead!",
-			          "url": "https://app.hubspot.com/contacts/3285375/deal/" + deal.dealId
+			          
+			          "value": "lead_claim"
 			        }
 			      ])
 	        };

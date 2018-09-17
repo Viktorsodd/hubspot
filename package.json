@@ -8,7 +8,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "main": "node main.js",
+    "dealbot": "node dealbot.js",
+    "config": "node config.js"
+
   },
   "dependencies": {
     "@slack/client": "^4.6.0",

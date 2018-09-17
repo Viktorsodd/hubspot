@@ -35,11 +35,27 @@ function deal(deal){
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
   console.log(body)
+
+  //Check if the deal has an owner
   var hasOwner;
   if (typeof body.properties.hubspot_owner_id !== 'undefined'){
   	hasOwner = true;
   }else{
   	hasOwner = false;
+  }
+
+  //Check if the deal has a value
+  var hasAmount;
+  if (typeof body.properties.amount !== 'undefined'){
+  	hasAmount = true;
+  }else{
+  	hasAmount = false;
+  }
+
+  //Check if it's the right pipeline
+  var kamPipe;
+  if(body.properties.pipeline == '722b58ad-73b9-4656-bc3c-408b13db8cee'){
+  	kamPipe = true;
   }
   var results = {
 	    "text": "Whoa! There's a new lead in town.",
@@ -47,12 +63,15 @@ function deal(deal){
 	    	{
 	    		"text": deal.properties.dealname.value
 	    	},
+	    	{
+    			"text": hasAmount ? deal.properties.amount.value + " SEK/month" : "No value set"
+	    	},
 	        {
 	            "text": new Date(deal.properties.dealname.timestamp)
 	        },
 
 	        {
-	            "text": hasOwner ? body.properties.hubspot_owner_id.value : "Unclaimed"
+	            "text": hasOwner ? body.properties.hubspot_owner_id.sourceId : "Unclaimed"
 	        }
 	    ]
 

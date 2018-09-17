@@ -107,7 +107,7 @@ function deal(deal,index,arrayLength){
 	  //console.log(slackMessage)
 	  createMessage(snippet)
 	  if(index === arrayLength - 1){
-	  	dealbot(slackMessage)
+	  	dealbot.message(slackMessage)
 	  }
 	  
 	  
@@ -134,4 +134,5 @@ getAccount();
 var deals = getDeals();
 deals;
 getDateThreeDaysAgo();
+dealbot.enhancedMessage()
 //dealbot(deals);

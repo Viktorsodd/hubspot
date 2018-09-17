@@ -5,6 +5,7 @@ var tools = require('./config.js');
 var hubkey = tools.hubkey();
 var dealbot = require('./dealbot.js')
 
+
 // Functions
 function getAccount(){
 	request('https://api.hubapi.com/integrations/v1/me?hapikey='+hubkey, { json: true }, (err, res, body) => {
@@ -14,22 +15,37 @@ function getAccount(){
 });
 }
 
+//Original slack message structure
+var slackMessage = {
+	"text": "Here are the new leads from the past 24 hours.",
+	    "attachments": [
+	    	
+	    ]
+}
+
 function getDeals(){
 	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
+  var arrayLength = body.results.length;
   
 	  body.results.forEach(function(value,index){
 	  	console.log(index)
+	  	console.log(body.results.length)
 	  	
-	  	setTimeout(function(){ deal(value);}, 2000*index)
+	  	//Get the details of each deal, limit the fetch rate
+	  	setTimeout(function(){ deal(value,index,arrayLength);}, 2000*index)
+
+	  	
+	  	
 	  
 		});
+	  
   
   
 	});
 }
 
-function deal(deal){
+function deal(deal,index,arrayLength){
 	
 
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {
@@ -48,7 +64,9 @@ function deal(deal){
   var hasAmount;
   if (typeof body.properties.amount !== 'undefined'){
   	hasAmount = true;
+  	console.log("hasAmount = true")
   }else{
+  	console.log("hasAmount = false")
   	hasAmount = false;
   }
 
@@ -65,33 +83,36 @@ function deal(deal){
 
   
   console.log('Right pipe!')
-  var results = {
-	    "text": "Whoa! There's a new lead in town.",
-	    "attachments": [
-	    	{
-	    		"text": deal.properties.dealname.value
-	    	},
-	    	{
-    			"text": hasAmount ? deal.properties.amount.value + " SEK/month" : "No value set"
-	    	},
-	        {
-	            "text": new Date(deal.properties.dealname.timestamp)
-	        },
+  var snippet = {
+	    		"text": "Company: *" + deal.properties.dealname.value + "*\n"
+	    	
+	    	
+    			+ "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
+	    	
+	        
+	            + "Created: *" + new Date(deal.properties.dealname.timestamp) + "*\n"
+	        
 
-	        {
-	            "text": hasOwner ? body.properties.hubspot_owner_id.sourceId : "Unclaimed"
-	        }
-	    ]
-
-		}
+	        
+	            + "Deal owner: *" + (hasOwner ? body.properties.hubspot_owner_id.sourceId + "*" : "Unclaimed*")
+	        };
+	    	
+	    
+	  //console.log(slackMessage)
+	  createMessage(snippet)
+	  if(index === arrayLength - 1){
+	  	dealbot(slackMessage)
+	  }
 	  
-	  
-	  dealbot(results)
 	  
   
   
 	
 	})
+}
+
+function createMessage(snippet){
+	slackMessage.attachments.push(snippet);
 }
 
 function getDateThreeDaysAgo(){

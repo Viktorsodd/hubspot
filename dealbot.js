@@ -1,8 +1,8 @@
 const { WebClient } = require('@slack/client');
-var tools = require('./config.js');
+
 
 const { IncomingWebhook } = require('@slack/client');
-const url = tools.slack_webhook_url();
+const url = process.env.slack_webhook_url
 const webhook = new IncomingWebhook(url);
 
 
@@ -22,7 +22,7 @@ var message = function sendMessage(content){
 
 var enhancedMessage = function sendenhancedMessage(){
 	// An access token (from your Slack app or custom integration - xoxa, xoxp, or xoxb)
-const token = tools.slack_oath();
+const token = process.env.slack_oath;
 
 const web = new WebClient(token);
 

@@ -19,7 +19,8 @@ const dealbot = require('./dealbot.js')
   	//dealbot.enhancedMessage();
   	var attachment_id = req.body.attachment_id;
   	var original_message = req.body.original_message;
-  	original_message.attachments[attachment_id].actions = [];
+  	console.log(original_message);
+  	//original_message.attachments[attachment_id].actions = [];
   	console.log(attachment_id);
   	
     res.send(original_message);

@@ -84,12 +84,11 @@ function deal(deal,index,arrayLength){
   
   console.log('Right pipe!')
   var snippet = {
-	    		"text": "Company: *" + deal.properties.dealname.value + "*\n"
+  				"title": deal.properties.dealname.value,
+  				"title_link": "https://app.hubspot.com/contacts/3285375/deal/" + deal.dealId,
+	    		"text": "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
 	    	
-	    	
-    			+ "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
-	    	
-	        
+	    		        
 	            + "Created: *" + new Date(deal.properties.dealname.timestamp) + "*\n"
 	        
 

@@ -1,9 +1,9 @@
 const request = require('request');
 const { WebClient } = require('@slack/client');
 // Global variables
-const tools = require('./config.js');
+
 var hubkey = tools.hubkey();
-const dealbot = require('./dealbot.js')
+
 
 
 // Functions

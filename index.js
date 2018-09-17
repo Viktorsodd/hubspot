@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const main = require('./main.js');
+const tools = require('./config.js');
+const dealbot = require('./dealbot.js')
 const request = require('request');
 const { WebClient } = require('@slack/client');
 

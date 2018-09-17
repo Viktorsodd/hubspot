@@ -96,11 +96,13 @@ function deal(deal,index,arrayLength){
 	        
 	            + "Deal owner: *" + (hasOwner ? body.properties.hubspot_owner_id.sourceId + "*" : "Unclaimed*"),
 	            "callback_id": deal.dealId,
+	            "fallback": "Sorry, no support for buttons.",
 	            "actions": (hasOwner ? {} : [
 			        {
 			          "type": "button",
 			          "text": "Claim that lead!",			          
-			          "value": "lead_claim"
+			          "value": "lead_claim",
+			          "name": "userResponse"
 			        }
 			      ])
 	        };

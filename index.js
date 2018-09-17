@@ -12,7 +12,7 @@ const dealbot = require('./dealbot.js')
   app.set('views', path.join(__dirname, 'views'))
   app.set('view engine', 'ejs')
   app.get('/', (req, res) => res.render('pages/index'))
-  app.use(bodyParser);       // to support JSON-encoded bodies
+  app.use(bodyParser.urlencoded({ extended: true }));       // to support JSON-encoded bodies
   
   app.post('/action', function(req, res) {
     

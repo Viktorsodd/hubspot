@@ -54,9 +54,17 @@ function deal(deal){
 
   //Check if it's the right pipeline
   var kamPipe;
-  if(body.properties.pipeline == '722b58ad-73b9-4656-bc3c-408b13db8cee'){
+  if(body.properties.pipeline.value == '722b58ad-73b9-4656-bc3c-408b13db8cee'){
   	kamPipe = true;
+  }else{
+  	console.log('Wrong pipe')
+  	return
   }
+
+//New variables to add; city (Stockholm), workspace_min (1), movie_in_date (1537056000000), workspaces (2), movie_in_date_latest (1544832000000), user_dashboard_url
+
+  
+  console.log('Right pipe!')
   var results = {
 	    "text": "Whoa! There's a new lead in town.",
 	    "attachments": [

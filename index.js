@@ -14,8 +14,8 @@ const dealbot = require('./dealbot.js')
   app.get('/', (req, res) => res.render('pages/index'))
   app.post('/action', function(req, res) {
     
-  	dealbot.enhancedMessage();
-    res.send('loool');
+  	//dealbot.enhancedMessage();
+    res.send('Thanks for claiming the lead!');
 }); 
 
 

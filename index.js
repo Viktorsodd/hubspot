@@ -6,6 +6,7 @@ const request = require('request');
 const { WebClient } = require('@slack/client');
 const app = express()
 var bodyParser = require('body-parser');
+const dealbot = require('./dealbot.js')
 
   app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views'))
@@ -13,7 +14,7 @@ var bodyParser = require('body-parser');
   app.get('/', (req, res) => res.render('pages/index'))
   app.post('/api/users', function(req, res) {
     
-
+  	dealbot.enhancedMessage();
     res.send('loool');
 }); 
 

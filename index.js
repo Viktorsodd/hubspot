@@ -17,13 +17,14 @@ const dealbot = require('./dealbot.js')
   app.post('/action', function(req, res) {
     
   	//dealbot.enhancedMessage();
-  	var attachment_id = req.body.attachment_id;
-  	var original_message = req.body.original_message;
-  	console.log(original_message);
+  	//var attachment_id = req.body.attachment_id;
+  	//var original_message = req.body.original_message;
+  	//console.log(original_message);
   	//original_message.attachments[attachment_id].actions = [];
-  	console.log(attachment_id);
+  	//console.log(attachment_id);
+  	console.log(req.body);
   	
-    res.send(original_message);
+    res.send('original_message');
 }); 
 
 

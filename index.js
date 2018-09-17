@@ -19,7 +19,7 @@ const dealbot = require('./dealbot.js')
   	//dealbot.enhancedMessage();
   	//var attachment_id = req.body.payload.attachment_id;
   	//var original_message = req.body.payload.original_message;
-  	var json = req.body.payload.JSON()
+  	var json = JSON.parse(req.body.payload)
   	var attachment_id = json.attachment_id;
   	var original_message = json.original_message;
   	console.log(original_message);

@@ -12,8 +12,8 @@ const app = express()
   app.get('/', (req, res) => res.render('pages/index'))
   app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
-app.post('/todos', (req, res) => {
-  
-      res.send('hello');
+app.post('/api/users', function(req, res) {
     
+
+    res.send('loool');
 });

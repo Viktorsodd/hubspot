@@ -97,6 +97,7 @@ function deal(deal,index,arrayLength){
   var snippet = {
   				"title": deal.properties.dealname.value,
   				"title_link": "https://app.hubspot.com/contacts/3285375/deal/" + deal.dealId,
+  				"color": hasOwner ? "#36a64f" : "#CD0000",
 	    		"text": "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
 	    		+ "Workspaces: *" + (hasMaxWS ? body.properties.workspaces.value + "*" : "-*") + "\n"
 	    	

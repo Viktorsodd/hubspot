@@ -17,8 +17,11 @@ const dealbot = require('./dealbot.js')
   app.post('/action', function(req, res) {
     
   	//dealbot.enhancedMessage();
-  	var attachment_id = req.body.payload.attachment_id;
-  	var original_message = req.body.payload.original_message;
+  	//var attachment_id = req.body.payload.attachment_id;
+  	//var original_message = req.body.payload.original_message;
+  	var json = req.body.payload.JSON()
+  	var attachment_id = json.attachment_id;
+  	var original_message = json.original_message;
   	console.log(original_message);
   	original_message.attachments[attachment_id].actions = [];
   	original_message.attachments[attachment_id].text = original_message.attachments[attachment_id].text + "\nViktor claimed this lead!";

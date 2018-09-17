@@ -71,6 +71,16 @@ function deal(deal,index,arrayLength){
   	hasAmount = false;
   }
 
+  //Check if there is a max amount of workspaces
+  var hasMaxWS;
+  if (typeof body.properties.workspaces !== 'undefined'){
+  	hasMaxWS = true;
+  	console.log("hasAmount = true")
+  }else{
+  	console.log("hasAmount = false")
+  	hasMaxWS = false;
+  }
+
   //Check if it's the right pipeline
   var kamPipe;
   if(body.properties.pipeline.value == '722b58ad-73b9-4656-bc3c-408b13db8cee'){
@@ -88,6 +98,7 @@ function deal(deal,index,arrayLength){
   				"title": deal.properties.dealname.value,
   				"title_link": "https://app.hubspot.com/contacts/3285375/deal/" + deal.dealId,
 	    		"text": "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
+	    		+ "Workspaces: *" + (hasMaxWS ? body.properties.workspaces.value + "*" : "-*") + "\n"
 	    	
 	    		        
 	            + "Created: *" + new Date(deal.properties.dealname.timestamp) + "*\n"

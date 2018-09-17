@@ -23,8 +23,8 @@ const dealbot = require('./dealbot.js')
   	var attachment_id = json.attachment_id;
   	var original_message = json.original_message;
   	console.log(original_message);
-  	original_message.attachments[attachment_id].actions = [];
-  	original_message.attachments[attachment_id].text = original_message.attachments[attachment_id].text + "\nViktor claimed this lead!";
+  	original_message.attachments[attachment_id-1].actions = [];
+  	original_message.attachments[attachment_id-1].text = original_message.attachments[attachment_id].text + "\n*Viktor claimed this lead!*";
   	console.log(attachment_id);
   	console.log(req.body);
   	

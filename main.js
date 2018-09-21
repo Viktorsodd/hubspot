@@ -21,7 +21,7 @@ function getAccount(){
 
 //Original slack message structure
 var slackMessage = {
-	"text": "Here are the new leads from the past 24 hours.\n During the day we claimed " + count_claimed + "/" + count_deals + " leads, yo.",
+	"text": "Here are the new leads from the past 24 hours.\n During the last 24 hours we claimed " + count_claimed + "/" + count_deals + " leads, yo.",
 	    "attachments": [
 	    	
 	    ]

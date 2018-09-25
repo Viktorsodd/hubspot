@@ -18,7 +18,7 @@ const web = new WebClient(token);
 const conversationId = 'C0PM35ALC';
 
 // See: https://api.slack.com/methods/chat.postMessage
-web.chat.postMessage({ channel: conversationId, text: content })
+web.chat.postMessage({ channel: conversationId, text: content.text, attachments: content.attachments })
   .then((res) => {
     // `res` contains information about the posted message
     console.log('Message sent: ', res.ts);

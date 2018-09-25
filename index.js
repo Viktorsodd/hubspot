@@ -25,7 +25,7 @@ const cron = require("node-cron");
   	var attachment_id = json.attachment_id;
   	var original_message = json.original_message;
   	var user_name = json.user.name;
-  	console.log(original_message.actions);
+  	console.log(original_message);
 
   	if(original_message.actions.value == "lead_claim"){
   		original_message.attachments[attachment_id-1].text = original_message.attachments[attachment_id - 1].text + "\n*" + user_name + " claimed this lead!*";

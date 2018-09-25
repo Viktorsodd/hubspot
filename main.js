@@ -120,7 +120,8 @@ function deal(deal,index,arrayLength, slackMessage){
 			          "type": "button",
 			          "text": "Claim that lead!",			          
 			          "value": "lead_claim",
-			          "name": "userResponse"
+			          "name": "userResponse",
+			          "style": "good"
 			        },
 			        {
 			        	"type": "button",

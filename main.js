@@ -121,6 +121,12 @@ function deal(deal,index,arrayLength, slackMessage){
 			          "text": "Claim that lead!",			          
 			          "value": "lead_claim",
 			          "name": "userResponse"
+			        },
+			        {
+			        	"type": "button",
+			        	"text": "Deprioritize"
+			        	"value": "trash",
+			        	"name": "userResponse"
 			        }
 			      ])
 	        };

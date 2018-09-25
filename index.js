@@ -26,8 +26,15 @@ const cron = require("node-cron");
   	var original_message = json.original_message;
   	var user_name = json.user.name;
   	console.log(original_message);
+
+  	if(original_message.actions.value == "lead_claim"){
+  		original_message.attachments[attachment_id-1].text = original_message.attachments[attachment_id - 1].text + "\n*" + user_name + " claimed this lead!*";
+  	}else{
+  		original_message.attachments[attachment_id-1].text = original_message.attachments[attachment_id - 1].text + "\n*" + user_name + " deprioritized this lead!*";
+  	}
+
   	original_message.attachments[attachment_id-1].actions = [];
-  	original_message.attachments[attachment_id-1].text = original_message.attachments[attachment_id - 1].text + "\n*" + user_name + " claimed this lead!*";
+  	
   	original_message.attachments[attachment_id-1].color = "#36a64f"
   	console.log(attachment_id);
   	console.log(req.body);

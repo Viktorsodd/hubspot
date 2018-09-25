@@ -7,6 +7,7 @@ const { WebClient } = require('@slack/client');
 const app = express()
 var bodyParser = require('body-parser');
 const dealbot = require('./dealbot.js')
+const cron = require("node-cron");
 
 
   app.use(express.static(path.join(__dirname, 'public')))

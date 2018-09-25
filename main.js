@@ -19,17 +19,18 @@ function getAccount(){
 });
 }
 
-//Original slack message structure
+
+
+function getDeals(){
+	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
+  if (err) { return console.log(err); }
+  //Original slack message structure
 var slackMessage = {
 	"text": "Here are the new leads from the past 24 hours.\n During the last day we claimed " + count_claimed + "/" + count_deals + " leads, yo.",
 	    "attachments": [
 	    	
 	    ]
 }
-
-function getDeals(){
-	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
-  if (err) { return console.log(err); }
   var arrayLength = body.results.length;
   
 	  body.results.forEach(function(value,index){
@@ -149,11 +150,10 @@ return d.getTime();
 }
 
 
-//Start app
-//console.log('hej')
-getAccount();
-var deals = getDeals();
-deals;
-getDateThreeDaysAgo();
-dealbot.enhancedMessage()
-//dealbot(deals);
+module.exports = {getAccount: getAccount(), deals: getDeals()};
+//getAccount();
+//var deals = getDeals();
+//deals;
+//getDateThreeDaysAgo();
+//dealbot.enhancedMessage()
+//not used dealbot(deals);

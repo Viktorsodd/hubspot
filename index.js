@@ -8,6 +8,7 @@ const app = express()
 var bodyParser = require('body-parser');
 const dealbot = require('./dealbot.js')
 
+
   app.use(express.static(path.join(__dirname, 'public')))
   app.set('views', path.join(__dirname, 'views'))
   app.set('view engine', 'ejs')
@@ -32,6 +33,10 @@ const dealbot = require('./dealbot.js')
   	
     res.send(original_message);
 }); 
+  app.get('/getLeads', function(req, res) {
+    main.deals
+  	
+});
 
 
   app.listen(PORT, () => console.log(`Listening on ${ PORT }`))

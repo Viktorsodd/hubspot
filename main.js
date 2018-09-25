@@ -27,7 +27,7 @@ var getDeals = function getDeals(){
   if (err) { return console.log(err); }
   //Original slack message structure
 var slackMessage = {
-	"text": "Here are the new leads from the past 24 hours.\n During the last day we claimed " + count_claimed + "/" + count_deals + " leads, yo.",
+	"text": "Here are the new leads since yesterday.\n During that period we claimed " + count_claimed + "/" + count_deals + " leads, yo.",
 	    "attachments": [
 	    	
 	    ]
@@ -136,6 +136,7 @@ function deal(deal,index,arrayLength, slackMessage){
 	  createMessage(snippet, slackMessage)
 	  if(index === arrayLength - 1){
 	  	count_deals = index;
+	  	slackMessage.text = "Here are the new leads since yesterday.\n During that period we claimed " + count_claimed + "/" + count_deals + " leads, yo."
 	  	dealbot.message(slackMessage)
 	  }
 	  
@@ -152,7 +153,7 @@ function createMessage(snippet, slackMessage){
 
 function getDateThreeDaysAgo(){
 	var d = new Date(); // Today!
-d.setDate(d.getDate() - 3); // Three days ago!
+d.setDate(d.getDate() - 1); // Three days ago!
 return d.getTime();
 }
 

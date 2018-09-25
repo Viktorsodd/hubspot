@@ -43,7 +43,8 @@ const cron = require("node-cron");
 
   app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
   console.log('Starting server')
-  cron.schedule("10 * * * * *", function(){
-  	console.log('Cron job running')
+  cron.schedule("55 15 * * *", function(){
+  	main.deals();
+  	console.log('Getting deals!')
   }, {scheduled: true, timezone: "Europe/Stockholm"});
   

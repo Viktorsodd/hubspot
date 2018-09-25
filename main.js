@@ -51,7 +51,7 @@ var slackMessage = {
 	});
 }
 
-function deal(deal,index,arrayLength, slackMessage){
+var getDeals = function deal(deal,index,arrayLength, slackMessage){
 	
 
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {
@@ -151,7 +151,7 @@ return d.getTime();
 }
 
 
-module.exports = {getAccount: getAccount(), deals: getDeals()};
+module.exports = {getAccount: getAccount(), deals: getDeals};
 //getAccount();
 //var deals = getDeals();
 //deals;

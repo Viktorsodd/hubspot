@@ -87,6 +87,13 @@ function deal(deal,index,arrayLength, slackMessage){
   	hasMaxWS = false;
   }
 
+  var hasLeadScore;
+  if (typeof body.properties.lead_score !== 'undefined'){
+  	hasLeadScore = true;
+  }else{
+  	hasLeadScore = false;
+  }
+
   //Check if it's the right pipeline
   var kamPipe;
   if(body.properties.pipeline.value == '722b58ad-73b9-4656-bc3c-408b13db8cee'){
@@ -106,6 +113,7 @@ function deal(deal,index,arrayLength, slackMessage){
   				"color": hasOwner ? "#36a64f" : "#CD0000",
 	    		"text": "Budget: *" + (hasAmount ? body.properties.amount.value + "*" : "-*") + "\n"
 	    		+ "Workspaces: *" + (hasMaxWS ? body.properties.workspaces.value + "*" : "-*") + "\n"
+	    		+ "Lead score: *" + (hasLeadScore ? body.properties.lead_score.value + "*" : "-*") + "\n"
 	    	
 	    		        
 	            + "Created: *" + new Date(deal.properties.dealname.timestamp) + "*\n"

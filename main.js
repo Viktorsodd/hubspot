@@ -126,7 +126,7 @@ function deal(deal,index,arrayLength, slackMessage){
 	    	
 	    
 	  //console.log(slackMessage)
-	  createMessage(snippet)
+	  createMessage(snippet, slackMessage)
 	  if(index === arrayLength - 1){
 	  	count_deals = index;
 	  	dealbot.message(slackMessage)
@@ -139,7 +139,7 @@ function deal(deal,index,arrayLength, slackMessage){
 	})
 }
 
-function createMessage(snippet){
+function createMessage(snippet, slackMessage){
 	slackMessage.attachments.push(snippet);
 }
 

@@ -38,7 +38,7 @@ var slackMessage = {
 	  	//console.log(body.results.length)
 	  	
 	  	//Get the details of each deal, limit the fetch rate
-	  	setTimeout(function(){ deal(value,index,arrayLength);}, 2000*index)
+	  	setTimeout(function(){ deal(value,index,arrayLength,slackMessage);}, 2000*index)
 
 	  	
 	  	
@@ -50,7 +50,7 @@ var slackMessage = {
 	});
 }
 
-function deal(deal,index,arrayLength){
+function deal(deal,index,arrayLength, slackMessage){
 	
 
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {

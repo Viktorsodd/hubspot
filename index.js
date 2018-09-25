@@ -34,7 +34,8 @@ const dealbot = require('./dealbot.js')
     res.send(original_message);
 }); 
   app.get('/getLeads', function(req, res) {
-    main.deals
+    main.deals;
+    res.send("Success!")
   	
 });
 

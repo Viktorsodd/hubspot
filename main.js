@@ -121,7 +121,7 @@ function deal(deal,index,arrayLength, slackMessage){
 			          "text": "Claim that lead!",			          
 			          "value": "lead_claim",
 			          "name": "userResponse",
-			          "style": "good"
+			          "style": "primary"
 			        },
 			        {
 			        	"type": "button",
@@ -137,7 +137,7 @@ function deal(deal,index,arrayLength, slackMessage){
 	  createMessage(snippet, slackMessage)
 	  if(index === arrayLength - 1){
 	  	count_deals = index;
-	  	slackMessage.text = "Here are the new leads since yesterday.\n During that period we claimed " + count_claimed + 1 + "/" + count_deals + " leads, yo."
+	  	slackMessage.text = "Here are the new leads since yesterday.\n During that period we claimed " + (count_claimed + 1) + "/" + count_deals + " leads, yo."
 	  	dealbot.message(slackMessage)
 	  }
 	  

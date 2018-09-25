@@ -124,7 +124,7 @@ function deal(deal,index,arrayLength, slackMessage){
 			        },
 			        {
 			        	"type": "button",
-			        	"text": "Deprioritize"
+			        	"text": "Deprioritize",
 			        	"value": "trash",
 			        	"name": "userResponse"
 			        }

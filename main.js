@@ -21,7 +21,7 @@ function getAccount(){
 
 
 
-function getDeals(){
+var getDeals = function getDeals(){
 	console.log('getDeals is running')
 	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
@@ -51,7 +51,7 @@ var slackMessage = {
 	});
 }
 
-var getDeals = function deal(deal,index,arrayLength, slackMessage){
+function deal(deal,index,arrayLength, slackMessage){
 	
 
 	request('https://api.hubapi.com/deals/v1/deal/'+deal.dealId+'?hapikey='+hubkey, { json: true }, (err, res, body) => {

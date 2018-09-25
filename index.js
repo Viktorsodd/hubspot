@@ -42,4 +42,6 @@ const cron = require("node-cron");
 
 
   app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  console.log('Starting server')
+  //cron.schedule("59 23 * * *", function()
   

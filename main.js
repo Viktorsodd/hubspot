@@ -23,6 +23,10 @@ function getAccount(){
 
 var getDeals = function getDeals(){
 	console.log('getDeals is running')
+	count_claimed = 0;
+	count_deals = 0;
+
+
 	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
   //Original slack message structure

@@ -153,6 +153,7 @@ function deal(deal,index,arrayLength, slackMessage){
 	  //console.log(slackMessage)
 	  createMessage(snippet, slackMessage)
 	  if(index === arrayLength - 1){
+	  	console.log('sending message to dealbot')
 	  	count_deals = index;
 	  	slackMessage.text = "Here are todays new leads.\n During that period we claimed " + (count_claimed + 1) + "/" + count_deals + " leads, yo."
 	  	dealbot.message(slackMessage)

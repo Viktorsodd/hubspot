@@ -13,12 +13,13 @@ const channel = '';
 
 // Send simple text to the webhook channel
 var message = function sendMessage(content){
-	if (environment == 'staging'){
+	if (environment === 'staging'){
 		channel = staging;
 		
 	}else{
 		channel = prod;
 	}
+	console.log(channel)
 // An access token (from your Slack app or custom integration - xoxa, xoxp, or xoxb)
 const token = process.env.slack_oath;
 

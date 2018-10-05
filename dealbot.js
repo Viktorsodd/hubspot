@@ -7,7 +7,7 @@ const webhook = new IncomingWebhook(url);
 const staging = 'D19F2DLJV';
 const prod = 'C0PM35ALC';
 const environment = 'staging';
-const channel = '';
+var channel = '';
 
 
 

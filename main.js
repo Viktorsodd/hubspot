@@ -21,13 +21,13 @@ function getAccount(){
 
 
 
-var getDeals = function getDeals(){
+var getDeals = function getDeals(time){
 	console.log('getDeals is running')
 	count_claimed = 0;
 	count_deals = 0;
 
 
-	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(), { json: true }, (err, res, body) => {
+	request('https://api.hubapi.com/deals/v1/deal/recent/created?hapikey='+hubkey+'&since='+getDateThreeDaysAgo(time), { json: true }, (err, res, body) => {
   if (err) { return console.log(err); }
   //Original slack message structure
 var slackMessage = {
@@ -178,9 +178,9 @@ function createMessage(snippet, slackMessage){
 	slackMessage.attachments.push(snippet);
 }
 
-function getDateThreeDaysAgo(){
+function getDateThreeDaysAgo(time){
 	var d = new Date(); // Today!
-d.setDate(d.getDate() - 1); // Three days ago!
+d.setDate(d.getDate() - time); // Three days ago!
 return d.getTime();
 }
 

@@ -42,7 +42,7 @@ const cron = require("node-cron");
     res.send(original_message);
 }); 
   app.get('/getLeads', function(req, res) {
-    main.deals();
+    main.deals(1);
     res.send("Success!")
   	
 });
@@ -51,7 +51,7 @@ const cron = require("node-cron");
   app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
   console.log('Starting server')
   cron.schedule("55 14 * * *", function(){
-  	main.deals();
+  	main.deals(1);
   	console.log('Getting deals!')
   }, {scheduled: true, timezone: "Europe/Stockholm"});
   

@@ -152,6 +152,8 @@ function deal(deal,index,arrayLength, slackMessage){
 	    
 	  //console.log(slackMessage)
 	  createMessage(snippet, slackMessage)
+	  console.log(index);
+	  console.log(arrayLength);
 	  if(index === arrayLength - 1){
 	  	console.log('sending message to dealbot')
 	  	count_deals = index;

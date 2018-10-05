@@ -6,7 +6,7 @@ const url = process.env.slack_webhook_url
 const webhook = new IncomingWebhook(url);
 const staging = 'D19F2DLJV';
 const prod = 'C0PM35ALC';
-const environment = 'staging';
+const environment = 'prod';
 var channel = '';
 
 

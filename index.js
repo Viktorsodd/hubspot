@@ -42,7 +42,7 @@ const cron = require("node-cron");
     res.send(original_message);
 }); 
   app.get('/getLeads', function(req, res) {
-    main.deals(7);
+    main.deals(1);
     res.send("Success!")
   	
 });

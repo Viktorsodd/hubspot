@@ -55,6 +55,11 @@ var slackMessage = {
 	});
 }
 
+
+
+
+
+
 function deal(deal,index,arrayLength, slackMessage){
 	
 

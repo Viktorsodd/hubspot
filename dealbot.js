@@ -13,6 +13,7 @@ const channel = '';
 
 // Send simple text to the webhook channel
 var message = function sendMessage(content){
+	console.log('Sending message started')
 	if (environment === 'staging'){
 		channel = staging;
 		

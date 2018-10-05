@@ -25,7 +25,7 @@ const token = process.env.slack_oath;
 const web = new WebClient(token);
 
 // This argument can be a channel ID, a DM ID, a MPDM ID, or a group ID
-const conversationId = 'C0PM35ALC';
+const conversationId = channel;
 
 // See: https://api.slack.com/methods/chat.postMessage
 web.chat.postMessage({ channel: conversationId, text: content.text, attachments: content.attachments })
@@ -50,7 +50,7 @@ const token = process.env.slack_oath;
 const web = new WebClient(token);
 
 // This argument can be a channel ID, a DM ID, a MPDM ID, or a group ID
-const conversationId = 'C0PM35ALC';
+const conversationId = channel;
 
 // See: https://api.slack.com/methods/chat.postMessage
 web.chat.postMessage({ channel: conversationId, text: 'Hello there' })
